@@ -1,25 +1,9 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
-Route::get('/about/{name}', function ($name) {
-    $age = 25;
-    return view('about', ['name' => $name, 'age' => $age]);
-});
-
-
-Route::get('/contact-us', function () {
-    return view('contact');
-});
-
-Route::get('/services', function(){
-    return view('services');
-});
-
-// Redirect route
-Route::redirect('/services', '/contact-us');
+// joining BlogController to the route
+Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
+Route::get('/blog/create', [BlogController::class, 'create'])->name('blog.create');
+Route::post('/blog', [BlogController::class, 'store'])->name('blog.store');

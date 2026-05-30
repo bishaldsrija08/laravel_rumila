@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
+    <title>Home Page</title>
 </head>
 <body>
-    <h1>Contact Us</h1>
-    <p>This is the contact page.</p>
+    <h1>Home Page</h1>
 </body>
 </html>
