@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Create Post</title>
 </head>
+
 <body>
     <h1>Add New Post</h1>
-
+    <!-- Display validation errors -->
+    <div>
+        @if($errors->any())
+        <ul>
+            @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+        @endif
+    </div>
     <form action="{{route('blog.store')}}" method="POST">
         @csrf
         @method('POST')
@@ -31,4 +42,5 @@
         <button type="submit">Save Post</button>
     </form>
 </body>
+
 </html>
