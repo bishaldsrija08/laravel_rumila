@@ -2,12 +2,12 @@
 <html>
 
 <head>
-    <title>Create Post</title>
+    <title>Update Post</title>
 </head>
 
 <body>
     @include('component.navbar')
-    <h1>Add New Post</h1>
+    <h1>Update Post</h1>
     <!-- Display validation errors -->
     <div>
         @if($errors->any())
@@ -18,29 +18,29 @@
         </ul>
         @endif
     </div>
-    <form action="{{route('blog.store')}}" method="POST">
+    <form action="{{route('blog.update', $blog->id)}}" method="POST">
         @csrf
-        @method('POST')
+        @method('PUT')
 
         <!-- Title -->
         <div>
             <label for="title">Title:</label>
-            <input type="text" id="title" name="title" required>
+            <input type="text" id="title" name="title" value="{{ $blog->title }}" required>
         </div>
 
         <!-- Subtitle -->
         <div>
             <label for="subtitle">Subtitle:</label>
-            <input type="text" id="subtitle" name="subtitle">
+            <input type="text" id="subtitle" name="subtitle" value="{{ $blog->subtitle }}">
         </div>
 
         <!-- Description -->
         <div>
             <label for="description">Description:</label>
-            <textarea id="description" name="description" required></textarea>
+            <textarea id="description" name="description" required>{{ $blog->description }}</textarea>
         </div>
 
-        <button type="submit">Save Post</button>
+        <button type="submit">Update Post</button>
     </form>
 </body>
 
